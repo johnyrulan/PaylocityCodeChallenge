@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.572
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paylocity.Domain", "..\Paylocity.Domain\Paylocity.Domain.csproj", "{8D0B14C4-50E9-4209-BE84-5D7075ED3E2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paylocity.Domain", "Paylocity.Domain\Paylocity.Domain.csproj", "{8D0B14C4-50E9-4209-BE84-5D7075ED3E2C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Paylocity.Web", "Paylocity.Web\Paylocity.Web.csproj", "{1394F03C-E576-4B7A-B5DC-A4C3BB43F8E6}"
 EndProject
