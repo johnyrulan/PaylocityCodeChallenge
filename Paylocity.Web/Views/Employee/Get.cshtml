@@ -1,0 +1,25 @@
+﻿@model Paylocity.Web.Models.ViewEmployeeModel
+
+@{
+    ViewData["Title"] = Model.Employee.Name + " Paycheck";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>@Model.Employee.Name</h1>
+
+<h3>Dependents</h3>
+@foreach (var dependent in Model.Employee.Dependents)
+{
+    <div>@dependent.Name</div>
+}
+
+<br />
+
+<h3>Paycheck</h3>
+<div>Base Pay: @String.Format("${0:0.00}", Model.Paycheck.BasePay)</div>
+<div>Adjusted Pay: @String.Format("${0:0.00}", Model.Paycheck.AdjustedPay)</div>
+
+<br />
+<div>
+    <a asp-action="List">Back to List</a>
+</div>

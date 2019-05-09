@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Paylocity.Domain.Interfaces;
 using Paylocity.Domain.Services;
+using Paylocity.Infrastructure.Repositories;
 
 namespace Paylocity.Web
 {
@@ -33,6 +34,8 @@ namespace Paylocity.Web
             });
 
             services.AddSingleton<IEmployeeService, EmployeeService>();
+            services.AddSingleton<IEmployeeRepository, EmployeeRepository>();
+            services.AddSingleton<IPaycheckService, PaycheckService>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

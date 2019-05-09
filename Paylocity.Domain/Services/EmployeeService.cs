@@ -17,17 +17,17 @@ namespace Paylocity.Domain.Services
 
         public Employee Get(string name)
         {
-            throw new NotImplementedException();
+            return employeeRepository.Get(name);
         }
 
         public List<Employee> List()
         {
-            return new List<Employee> { new Employee { Name = "John" } };
+            return employeeRepository.List();
         }
 
         public void Save(Employee employee)
         {
-            throw new NotImplementedException();
+            employeeRepository.Save(employee);
         }
     }
 }
