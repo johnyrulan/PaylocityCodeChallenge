@@ -12,12 +12,11 @@
     <div class="col-md-4">
         <form action="/Employee/AddDependent" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="EmployeeName" class="control-label"></label>
+            <div class="form-group">                
                 <input asp-for="EmployeeName" class="form-control" value="@Model.EmployeeName" type="hidden" />                
             </div>
             <div class="form-group">
-                <label asp-for="DependentName" class="control-label"></label>
+                <label asp-for="DependentName" class="control-label">Dependent Name</label>
                 <input asp-for="DependentName" class="form-control" />
                 <span asp-validation-for="DependentName" class="text-danger"></span>
             </div>

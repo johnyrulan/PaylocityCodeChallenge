@@ -76,5 +76,30 @@ namespace Paylocity.Test
 
             Assert.AreEqual(adjustedPay, paycheck.AdjustedPay);
         }
+
+        [TestMethod]
+        public void PaycheckService_Get_Should_Return_Adjusted_Employee_Dependent_Pay_With_Discount()
+        {
+            mockEmployeeRepository
+                .Setup(_ => _.Get(It.IsAny<string>()))
+                .Returns(new Employee
+                {
+                    Name = "Andrew",
+                    Dependents = new List<Person>
+                    {
+                        new Person { Name = "Ally" },
+                        new Person { Name = "Jacob" }
+                    }
+                });
+
+            double benefitsCost = EmployeeConstants.EmployeeBaseBenefitsCost - EmployeeConstants.EmployeeBaseBenefitsCost * EmployeeConstants.StartsWithABenefitsDiscount;
+            benefitsCost += EmployeeConstants.EmployeeBaseDependentCost - EmployeeConstants.EmployeeBaseDependentCost * EmployeeConstants.StartsWithABenefitsDiscount;
+            benefitsCost += EmployeeConstants.EmployeeBaseDependentCost;
+
+            double adjustedPay = (EmployeeConstants.EmployeeBasePay) - benefitsCost / PaycheckConstants.PaychecksPerYear;
+            var paycheck = paycheckService.Get(testEmployeeName);
+
+            Assert.AreEqual(adjustedPay, paycheck.AdjustedPay);
+        }
     }
 }
